@@ -1,0 +1,8 @@
+export enum trackingType {
+    TRANSACTION = 'TRANSACTION',
+    INSTALLATION = 'INSTALLATION',
+    UPDATE="UPDATE",
+    BLOCKED="BLOCKED"
+
+  }
+  

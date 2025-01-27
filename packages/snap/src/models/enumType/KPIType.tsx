@@ -1,4 +1,4 @@
-export enum trackingType {
+export enum TrackingType {
   TRANSACTION = 'TRANSACTION',
   INSTALLATION = 'INSTALLATION',
   UPDATE = 'UPDATE',

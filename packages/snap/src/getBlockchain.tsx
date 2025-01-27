@@ -1,24 +1,24 @@
-import { blockchainType } from './models/enumType/blockchainType';
+import { BlockchainType } from './models/enumType/BlockchainType';
 
 export const getBlockchainName = (
   chainIdWithPrefix: string | null,
-): blockchainType | null => {
+): BlockchainType | null => {
   if (!chainIdWithPrefix) {
     return null;
   }
 
   if (chainIdWithPrefix.startsWith('eip155:')) {
     const chainId = chainIdWithPrefix.replace('eip155:', '');
-    const chainMap: { [key: string]: blockchainType } = {
-      '1': blockchainType.ETHEREUM,
-      '11155111': blockchainType.ETHEREUM,
-      '8453': blockchainType.BASE,
-      '137': blockchainType.POLYGON,
-      '56': blockchainType.BSC,
-      '43114': blockchainType.AVALANCHE,
+    const chainMap: { [key: string]: BlockchainType } = {
+      '1': BlockchainType.ETHEREUM,
+      '11155111': BlockchainType.ETHEREUM,
+      '8453': BlockchainType.BASE,
+      '137': BlockchainType.POLYGON,
+      '56': BlockchainType.BSC,
+      '43114': BlockchainType.AVALANCHE,
     };
 
-    return chainMap[chainId] || null;
+    return chainMap[chainId] ?? null;
   }
   return null;
 };

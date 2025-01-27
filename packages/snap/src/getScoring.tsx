@@ -1,4 +1,4 @@
-import type { scoringProps } from 'src/models/scoring';
+import type { ScoringProps } from 'src/models/scoring';
 
 type BodyType = {
   score: string;
@@ -19,7 +19,7 @@ export type RequestReturnError = {
 export type RequestReturn = RequestReturnSuccess | RequestReturnError;
 
 export const getScoring = async (
-  body: scoringProps,
+  body: ScoringProps,
 ): Promise<RequestReturn> => {
   try {
     const response = await fetch(
@@ -51,11 +51,11 @@ export const getScoring = async (
       error: json?.error,
       status: response.status,
     };
-  } catch (err: any) {
+  } catch (error) {
     return {
       success: false,
-      message: String(err),
-      status: (err as { code: number }).code || 0,
+      message: String(error),
+      status: (error as { code: number }).code || 0,
     };
   }
 };

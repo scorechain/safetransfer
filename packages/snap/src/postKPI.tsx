@@ -38,11 +38,11 @@ export const postKPI = async (body: KPIProps): Promise<RequestReturn> => {
       error: json?.error,
       status: response.status,
     };
-  } catch (err: any) {
+  } catch (error) {
     return {
       success: false,
-      message: String(err),
-      status: (err as { code: number }).code || 0,
+      message: String(error),
+      status: (error as { code: number }).code || 0,
     };
   }
 };

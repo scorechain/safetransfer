@@ -1,6 +1,6 @@
-import type { trackingType } from './enumType/KPIType';
+import type { TrackingType } from './enumType/KPIType';
 
 export type KPIProps = {
-  type: trackingType;
+  type: TrackingType;
   userId: string | undefined;
 };

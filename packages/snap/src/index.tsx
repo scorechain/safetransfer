@@ -4,15 +4,14 @@ import type {
   OnInstallHandler,
   OnUpdateHandler,
 } from '@metamask/snaps-sdk';
-import { Box, Heading, Text } from '@metamask/snaps-sdk/jsx';
-import { v4 as uuidv4 } from 'uuid';
-
+import { Box, Heading } from '@metamask/snaps-sdk/jsx';
+import { randomUUID } from "crypto";
 import { HomePage } from './components/HomePage';
 import { Insight } from './components/Insights';
 import { Unavailable } from './components/Unavailable';
 import { getBlockchainName } from './getBlockchain';
 import { getScoring } from './getScoring';
-import { trackingType } from './models/enumType/KPIType';
+import { TrackingType } from './models/enumType/KPIType';
 import { postKPI } from './postKPI';
 import { getState, setState } from './utils';
 
@@ -21,17 +20,17 @@ export const onTransaction: OnTransactionHandler = async ({
   chainId,
 }) => {
   const _blockchain = getBlockchainName(chainId);
-  if (_blockchain != null) {
+  if (_blockchain !== null) {
     let state = await getState(true);
 
     if (state.id === undefined || state.id === '') {
-      const userId = uuidv4();
+      const userId = randomUUID();
       await setState({ id: userId }, true);
       state = await getState(true);
     }
 
     await postKPI({
-      type: trackingType.TRANSACTION,
+      type: TrackingType.TRANSACTION,
       userId: String(state.id),
     });
 
@@ -124,8 +123,8 @@ export const onTransaction: OnTransactionHandler = async ({
       };
     } else if (result.status === 429) {
       await postKPI({
-        type: trackingType.BLOCKED,
-        userId: state && state.id ? String(state.id) : undefined,
+        type: TrackingType.BLOCKED,
+        userId: state?.id ? String(state.id) : undefined,
       });
       return {
         content: (
@@ -155,10 +154,10 @@ export const onHomePage: OnHomePageHandler = async () => {
 };
 
 export const onInstall: OnInstallHandler = async () => {
-  const userId = uuidv4();
+  const userId = randomUUID();
   await setState({ id: userId }, true);
   await postKPI({
-    type: trackingType.INSTALLATION,
+    type: TrackingType.INSTALLATION,
     userId,
   });
 
@@ -179,7 +178,7 @@ export const onUpdate: OnUpdateHandler = async () => {
   const state = await getState(true);
 
   await postKPI({
-    type: trackingType.UPDATE,
-    userId: state && state.id ? String(state.id) : undefined,
+    type: TrackingType.UPDATE,
+    userId: state?.id ? String(state.id) : undefined,
   });
 };

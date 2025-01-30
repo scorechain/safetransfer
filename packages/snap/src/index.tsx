@@ -5,7 +5,7 @@ import type {
   OnUpdateHandler,
 } from '@metamask/snaps-sdk';
 import { Box, Heading } from '@metamask/snaps-sdk/jsx';
-import { randomUUID } from "crypto";
+import { v4  } from 'uuid';
 import { HomePage } from './components/HomePage';
 import { Insight } from './components/Insights';
 import { Unavailable } from './components/Unavailable';
@@ -24,7 +24,7 @@ export const onTransaction: OnTransactionHandler = async ({
     let state = await getState(true);
 
     if (state.id === undefined || state.id === '') {
-      const userId = randomUUID();
+      const userId = v4();
       await setState({ id: userId }, true);
       state = await getState(true);
     }
@@ -154,7 +154,7 @@ export const onHomePage: OnHomePageHandler = async () => {
 };
 
 export const onInstall: OnInstallHandler = async () => {
-  const userId = randomUUID();
+  const userId = v4();
   await setState({ id: userId }, true);
   await postKPI({
     type: TrackingType.INSTALLATION,

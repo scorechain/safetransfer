@@ -1,6 +1,6 @@
 {
   "name": "scorechain-safetransfer",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A Metamask Snap to protect your crypto transactions",
   "repository": {
     "type": "git",

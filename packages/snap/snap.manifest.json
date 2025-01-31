@@ -1,5 +1,5 @@
 {
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Secure your MetaMask transactions with Scorechain SafeTransfer Snap, screening addresses in real time against known fraudulent entities.",
   "proposedName": "SafeTransfer",
   "repository": {
@@ -7,7 +7,7 @@
     "url": "git+https://github.com/scorechain/safetransfer.git"
   },
   "source": {
-    "shasum": "JY2DJHEk72jUt0KMfFiwuOnDnQ/zDpBpzx1ggcutV8A=",
+    "shasum": "nM/bJAQ/0/lfG/dV3gi9m1gmoATlX3G4fA5stimcczo=",
     "location": {
       "npm": {
         "filePath": "dist/bundle.js",

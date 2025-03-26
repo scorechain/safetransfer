@@ -25,6 +25,9 @@ export const HomePage: SnapComponent = () => {
         <Text>🌐 BSC (Binance Smart Chain)</Text>
         <Text>🌐 ETHEREUM</Text>
         <Text>🌐 POLYGON</Text>
+        <Text>🌐 ARBITRUM ONE</Text>
+        <Text>🌐 OPTIMISM</Text>
+        <Text>🌐 BLAST</Text>
       </Box>
 
       <Box>

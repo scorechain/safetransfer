@@ -4,4 +4,7 @@ export enum BlockchainType {
   POLYGON = 'POLYGON',
   AVALANCHE = 'AVALANCHE',
   BASE = 'BASE',
+  ARBITRUMONE = 'ARBITRUMONE',
+  BLAST = 'BLAST',
+  OPTIMISM = 'OPTIMISM',
 }

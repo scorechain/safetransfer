@@ -1,4 +1,4 @@
-import type { BlockchainType } from './enumType/BlockchainType';
+import type { BlockchainType } from './enumType/blockchainType';
 
 export type ScoringProps = {
   objectId: string;

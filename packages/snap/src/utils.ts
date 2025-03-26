@@ -1,4 +1,5 @@
 import { ManageStateOperation } from '@metamask/snaps-sdk';
+
 type State = {
   id: string;
 };
@@ -26,7 +27,10 @@ export async function getState(encrypted: boolean): Promise<State> {
  * @param encrypted - Whether the state should be stored in encrypted format.
  * @returns Resolves when the state update is complete.
  */
-export async function setState(newState: State, encrypted: boolean) : Promise<void> {
+export async function setState(
+  newState: State,
+  encrypted: boolean,
+): Promise<void> {
   await snap.request({
     method: 'snap_manageState',
     params: {
@@ -41,7 +45,7 @@ export async function setState(newState: State, encrypted: boolean) : Promise<vo
  * @param encrypted - Whether the state clearing operation should account for encryption.
  * @returns Resolves when the state is successfully cleared.
  */
-export async function clearState(encrypted: boolean) : Promise<void>{
+export async function clearState(encrypted: boolean): Promise<void> {
   await snap.request({
     method: 'snap_manageState',
     params: {

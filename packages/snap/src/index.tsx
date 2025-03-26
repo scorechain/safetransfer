@@ -5,7 +5,8 @@ import type {
   OnUpdateHandler,
 } from '@metamask/snaps-sdk';
 import { Box, Heading } from '@metamask/snaps-sdk/jsx';
-import { v4  } from 'uuid';
+import { v4 } from 'uuid';
+
 import { HomePage } from './components/HomePage';
 import { Insight } from './components/Insights';
 import { Unavailable } from './components/Unavailable';
@@ -167,7 +168,7 @@ export const onInstall: OnInstallHandler = async () => {
       type: 'alert',
       content: (
         <Box>
-          <Heading>Thank you for installing Scorechain Snap</Heading>
+          <Heading>Thank you for installing our SafeTransfer Snap.</Heading>
         </Box>
       ),
     },

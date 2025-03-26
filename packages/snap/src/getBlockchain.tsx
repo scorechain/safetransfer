@@ -1,4 +1,4 @@
-import { BlockchainType } from './models/enumType/BlockchainType';
+import { BlockchainType } from './models/enumType/blockchainType';
 
 export const getBlockchainName = (
   chainIdWithPrefix: string | null,
@@ -16,6 +16,12 @@ export const getBlockchainName = (
       '137': BlockchainType.POLYGON,
       '56': BlockchainType.BSC,
       '43114': BlockchainType.AVALANCHE,
+      '42161': BlockchainType.ARBITRUMONE,
+      '421614': BlockchainType.ARBITRUMONE, // Arbitrum One Sepolia testnet
+      '81457': BlockchainType.BLAST,
+      '168587773': BlockchainType.BLAST, // BLAST Sepolia Testnet
+      '10': BlockchainType.OPTIMISM,
+      '11155420': BlockchainType.OPTIMISM, // OP Sepolia Testnet
     };
 
     return chainMap[chainId] ?? null;
